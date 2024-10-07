@@ -39,7 +39,7 @@ local function organizerGenerateCalendar()
 		local yearTxt = string.sub(tostring(currentYear), -2)
 		local monthTxt = string.format("%02d", currentMonth)
 
-		local dayLink = string.format("[[%s/%s/%s|%s]]", yearTxt, monthTxt, dayTxt, dayTxt)
+		local dayLink = string.format("[[cal/%s/%s/%s|%s]]", yearTxt, monthTxt, dayTxt, dayTxt)
 		weekLine = weekLine .. " " .. dayLink
 
 		if dayOfWeek == 7 then
@@ -163,6 +163,7 @@ local function organizerArchiveCheckedTodos()
 	local currentYearFormated = string.sub(tostring(currentDate.year), -2)
 
 	local todayPagePath = organizerPath
+		.. "/cal/"
 		.. string.format("%s/%02d/%02d", currentYearFormated, currentMonth, currentDay)
 		.. ".wiki"
 	if #archivedTodos > 0 then
